@@ -465,10 +465,10 @@ footer {
 
 .already-subscribed {
     margin-top: 1rem;
-    color: var(--dark);
+    color: rgb(196, 196, 196);
     cursor: pointer;
     text-decoration: none;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     transition: color 0.2s;
 }
 
