@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoho Interview Prep - March 2025</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/ZOHO_logo_2023.svg" alt="Zoho Logo"
+                    class="zoho-logo">
+            </div>
+            <div class="title-container">
+                <h1>Coding Interview Preparation</h1>
+                <p>March 22-23, 2025 | Problem Solutions and Resources</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Subscription Modal (shown by default) -->
+    <div id="subscriptionModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Subscribe to Unlock Content</h2>
+            <p>To access the interview questions, please subscribe to our YouTube channel:</p>
+            <a href="https://www.youtube.com/@codeit-tamil?sub_confirmation=1" target="_blank" class="subscribe-btn"
+                id="subscribeBtn">
+                <svg class="youtube-icon" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z" />
+                </svg>
+                Subscribe to codeit-tamil
+            </a>
+            <p class="already-subscribed" id="alreadySubscribed">I've already subscribed</p>
+        </div>
+    </div>
+
+    <div id="returnMessage" class="return-message">
+        <h3><span class="checkmark">✓</span> Thanks for subscribing!</h3>
+        <p>All content is now unlocked. Happy learning!</p>
+    </div>
+
+    <div class="main-container">
+        <div class="content-container">
+            <section class="intro">
+                <h2>About the Interview Process</h2>
+                <p>
+                    This portal contains the coding problems asked in Zoho interviews on
+                    March 22-23, 2025. The interview consists of multiple rounds with
+                    different evaluation criteria:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>March 22 Morning:</strong> Problems 1 & 2 - Your solution
+                        must produce correct output, and optimization will also checked.
+                    </li>
+                    <li>
+                        <strong>March 22 Afternoon:</strong> Problems 3, 4, 5 - Logic
+                        verification by Zoho team required before coding implementation.
+                    </li>
+                    <li>
+                        <strong>March 23 - Continued:</strong> Problems 6, 7, 8 - Same
+                        structure as March 22 afternoon - logic verification precedes
+                        coding.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Locked Content Placeholder -->
+            <div id="lockedContent" class="locked-content">
+                <div class="locked-icon">🔒</div>
+                <h3>Content Locked</h3>
+                <p>Subscribe to our YouTube channel to unlock all interview questions</p>
+                <button id="unlockBtn" class="subscribe-btn" style="margin-top: 1rem;">
+                    Unlock Content
+                </button>
+            </div>
+
+            <!-- Actual Content (hidden by default) -->
+            <div id="interviewContent" class="interview-process hidden">
+                <section class="day">
+                    <h2>March 22, 2025 (Day 1)</h2>
+
+                    <div class="problem">
+                        <div class="problem-number">1</div>
+                        <h3>Number Pattern Problem</h3>
+                        <p>
+                            Write a program to print the following pattern for a given
+                            integer n:
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong> 5 <br />
+                            <strong>Example Output:</strong> <br />
+                            1<br />
+                            2 6<br />
+                            3 7 10<br />
+                            4 8 11 13<br />
+                            5 9 12 14 15
+                        </div>
+                        <p>
+                            The numbers should follow the sequence where each row starts
+                            with the row number and increments by (n - j) for each
+                            subsequent number in the row (where j is the column position).
+                        </p>
+                    </div>
+
+                    <div class="problem">
+                        <div class="problem-number">2</div>
+                        <h3>Leaders in an Array</h3>
+                        <p>
+                            Given an array of integers, print all the leaders in the array.
+                            A leader is an element that is greater than all the elements to
+                            its right. The output should be in the same order as they occur
+                            in the input array.
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong> [16, 17, 5, 5, 5, 2]<br />
+                            <strong>Example Output:</strong> 17 5 2
+                        </div>
+                    </div>
+
+                    <div class="problem">
+                        <div class="problem-number">3</div>
+                        <h3>Unmatched Substrings</h3>
+                        <p>
+                            Given two strings of equal length, find and print all the
+                            substrings where the characters at the same positions in both
+                            strings are different. The output should display the mismatched
+                            substrings from both strings.
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong> schoollifeisusefull,
+                            schoollongofuselike<br />
+                            <strong>Example Output:</strong> life , long<br />usefull ,
+                            uselike
+                        </div>
+                    </div>
+                    <div class="problem">
+                        <div class="problem-number">4</div>
+                        <h3>Maximum Consecutive Subarray</h3>
+                        <p>
+                            Given a binary array (containing only 0s and 1s), find the
+                            length of the longest consecutive subarray of the same digit. If
+                            no such subarray exists, print "No subarray found".
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong> [1, 1, 0, 0, 1, 0, 1, 0, 1, 1,
+                            1, 1]<br />
+                            <strong>Example Output:</strong> 4
+                        </div>
+                    </div>
+
+                    <div class="problem">
+                        <div class="problem-number">5</div>
+                        <h3>Date Manipulation (Add Days to Date)</h3>
+                        <p>
+                            Given a date in DD-MM-YYYY format and an integer N, write a
+                            program to add N days to the given date and print the new date
+                            in the same format. The solution must account for leap years and
+                            varying month lengths.
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong> 31-12-2025, N = 3000<br />
+                            <strong>Example Output:</strong> 26-11-2034
+                        </div>
+                    </div>
+                </section>
+
+                <section class="day">
+                    <h2>March 23, 2025 (Day 2)</h2>
+
+                    <div class="problem">
+                        <div class="problem-number">6</div>
+                        <h3>Snake Pattern Matrix Traversal</h3>
+                        <p>
+                            Given a 2D square matrix, print its elements in snake pattern:
+                            first row left to right, second row right to left, and so on.
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong><br />
+                            [[1, 2, 3],<br />
+                            [4, 5, 6],<br />
+                            [7, 8, 9]]<br />
+                            <strong>Example Output:</strong><br />
+                            1 2 3<br />
+                            6 5 4<br />
+                            7 8 9
+                        </div>
+                    </div>
+
+                    <div class="problem">
+                        <div class="problem-number">7</div>
+                        <h3>Binary Addition</h3>
+                        <p>
+                            Given two binary strings, write a program to compute their sum
+                            and return the result as a binary string.
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong> 10011, 11000<br />
+                            <strong>Example Output:</strong> 101011
+                        </div>
+                    </div>
+
+                    <div class="problem">
+                        <div class="problem-number">8</div>
+                        <h3>Largest Number Formation</h3>
+                        <p>
+                            Given an array of non-negative integers, arrange them to form
+                            the largest possible number and print it.
+                        </p>
+                        <div class="example">
+                            <strong>Example Input:</strong> [8, 7, 1, 9]<br />
+                            <strong>Example Output:</strong> 9871
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="video-sidebar">
+            <h2>Preparation Playlist</h2>
+            <div class="video-container">
+                <a href="https://www.youtube.com/playlist?list=PL2FY0egU3TJQ86lOTmoGzhRX9SUo48Z1B" target="_blank"
+                    class="video-link">
+                    <img src="https://i.ytimg.com/vi/rezfGLOdeEg/hqdefault.jpg" alt="Playlist thumbnail"
+                        class="video-thumbnail">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+
+            <div class="channel-info">
+                <h3>Subscribe for More</h3>
+                <p>Check out our channel for Zoho Round 3</p>
+                <img src="https://yt3.googleusercontent.com/8jKEl8Ya5AUdzHp_y4v7GDDLAuu47VJbeFHaBldbXsDJXjsjK0IJPwgGNmfUCzvZGYziSPv_nQ=s800-c-k-c0x00ffffff-no-rj"
+                    alt="Code It Channel Logo" onclick="window.location.href='https://www.youtube.com/@codeit-tamil';"
+                    style="cursor: pointer;">
+
+                <div><a href="https://www.youtube.com/@codeit-tamil" target="_blank"
+                        class="channel-link">@codeit-tamil</a></div>
+                <p>Don't forget to like and subscribe!</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            &copy; 2025 Zoho Interview Preparation | Practice these problems to ace
+            your interview!
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
