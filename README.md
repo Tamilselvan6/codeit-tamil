@@ -1,4 +1,21 @@
+# 🚀 Code It - YouTube Channel Landing Page  
 
+## 🌐 Live Demo  
+🔗 [Visit the Site](https://your-site-name.netlify.app)  
+
+This is a **simple and responsive landing page** designed to promote the **Code It** YouTube channel. The page features:  
+
+- ✅ **Channel Logo & Description**  
+- ✅ **Clickable YouTube Link**  
+- ✅ **Styled Buttons & Hover Effects**  
+- ✅ **Fully Responsive Design**  
+
+---
+
+## 🛠️ Tech Stack  
+- **HTML5, CSS3**  
+- **JavaScript** (Optional for interactivity)  
+- **Hosted on Netlify**  
 ---
 
 ## 🚀 Deployment  
