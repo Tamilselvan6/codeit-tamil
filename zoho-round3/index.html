@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoho Interview Prep - March 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/ZOHO_logo_2023.svg" alt="Zoho Logo" class="zoho-logo">
+            </div>
+            <div class="title-container">
+                <h1>Zoho Interview Preparation Portal</h1>
+                <p>Round 3 - System Design & Advanced Problems | March 2025</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Subscription Modal (shown by default) -->
+    <div id="subscriptionModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Subscribe to Unlock Content</h2>
+            <p>To access the interview questions, please subscribe to our YouTube channel:</p>
+            <a href="https://www.youtube.com/@codeit-tamil?sub_confirmation=1" target="_blank" class="subscribe-btn" id="subscribeBtn">
+                <svg class="youtube-icon" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z" />
+                </svg>
+                Subscribe to codeit-tamil
+            </a>
+            <p class="already-subscribed" id="alreadySubscribed">I've already subscribed</p>
+        </div>
+    </div>
+
+    <div id="returnMessage" class="return-message">
+        <h3><span class="checkmark">✓</span> Thanks for subscribing!</h3>
+        <p>All content is now unlocked. Happy learning!</p>
+    </div>
+
+    <div class="main-container">
+        <div class="content-container">
+            
+            
+            <section class="intro">
+                <div class="intro-header">
+                    <h2>Zoho Interview Round 3 Process Overview</h2>
+                    <div class="intro-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                </div>
+                <div class="intro-content">
+                    <div class="intro-card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Interview Date</h4>
+                            <p>March 23, 2025</p>
+                        </div>
+                    </div>
+                    <div class="intro-card">
+                        <div class="card-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Round 3 Focus</h4>
+                            <p>System Design & Advanced Problem Solving</p>
+                        </div>
+                    </div>
+                    <div class="intro-card">
+                        <div class="card-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Evaluation Criteria</h4>
+                            <p>Modular design, OOP principles, scalability, and code quality</p>
+                        </div>
+                    </div>
+                    <div class="intro-video">
+                        <h4>Complete Preparation Guide</h4>
+                        <p>For detailed preparation tips and strategies, watch our comprehensive guide:</p>
+                        <a href="https://youtu.be/kQtCywpWfWg?si=K0tZ5VA8Xh8zm4p4" target="_blank" class="video-link-btn">
+                            <i class="fas fa-play-circle"></i> Watch Preparation Video
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Locked Content Placeholder -->
+            <div id="lockedContent" class="locked-content">
+                <div class="locked-icon">🔒</div>
+                <h3>Content Locked</h3>
+                <p>Subscribe to our YouTube channel to unlock all interview questions</p>
+                <button id="unlockBtn" class="subscribe-btn" style="margin-top: 1rem;">
+                    Unlock Content
+                </button>
+            </div>
+
+            <!-- Actual Content (hidden by default) -->
+            <div id="interviewContent" class="interview-process hidden">
+                <section class="problem-section">
+                    <h2>Round 3 - System Design Challenge</h2>
+                    
+                    <div class="problem" id="problem-1">
+                        <h3>Stock Management System</h3>
+                        
+                        <p><strong>Language:</strong> Any object-oriented programming language (Java/Python preferred)</p>
+                        <p><strong>Focus:</strong> System Design, OOP, Logical thinking, Code quality</p>
+                        
+                        <h4>Problem Statement:</h4>
+                        <p>Design and implement an In-Memory Stock Management System for a small-scale store. The system should be menu-driven and allow a store manager to perform the following operations.</p>
+                        
+                        <h4>Modules to Implement:</h4>
+                        <ul class="requirements">
+                            <li>
+                                <strong>1. Add New Product to Inventory</strong>
+                                <ul>
+                                    <li>Input: Product ID, Product Name, Category, Quantity, Price per Unit, Supplier Name</li>
+                                    <li>Store it in memory</li>
+                                    <li>Product ID should be unique</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>2. Update Stock Quantity</strong>
+                                <ul>
+                                    <li>Input: Product ID, Quantity to add or remove</li>
+                                    <li>If removing, ensure quantity doesn't go below 0</li>
+                                    <li>Update the product details accordingly</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>3. Search Product</strong>
+                                <ul>
+                                    <li>Search by: Product ID, Product Name, or Category</li>
+                                    <li>Display complete product details</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>4. Track Sales and Purchases</strong>
+                                <ul>
+                                    <li>Support recording sales (reduces stock) and purchases (increases stock)</li>
+                                    <li>For each transaction, store: Transaction ID, Product ID, Type (Sale/Purchase), Quantity, Date</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>5. Generate Reports</strong>
+                                <ul>
+                                    <li>Low Stock Alert Report – List all products with stock below threshold</li>
+                                    <li>Sales Report – Show total quantity sold per product</li>
+                                    <li>Purchase Report – Show total quantity purchased per product</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>6. Update Product Details</strong>
+                                <ul>
+                                    <li>Modify name, category, supplier, or price</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                        <div class="solution-container">
+                            <button class="solution-toggle">
+                                <span>View Solution Approach</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="solution-content">
+                                <h4>Java Implementation:</h4>
+                                <div class="code-block">
+                                    <pre>package zohoRound3;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Product {
+    int productId;
+    String productName;
+    double price;
+    Supplier supplier;
+
+    Product(int productId, String productName, double price, Supplier supplier) {
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+        this.supplier = supplier;
+    }
+
+    @Override
+    public String toString() {
+        return "Product ID: " + productId + ", Name: " + productName + ", Price: " + price;
+    }
+}
+
+class Supplier {
+    int supplierId;
+    String supplierName;
+
+    Supplier(int supplierId, String supplierName) {
+        this.supplierId = supplierId;
+        this.supplierName = supplierName;
+    }
+
+    @Override
+    public String toString() {
+        return "Supplier ID: " + supplierId + ", Name: " + supplierName;
+    }
+}
+
+class Stock {
+    int stockId;
+    Product product;
+    int quantity;
+    int thresholdQuantity;
+
+    Stock(int stockId, Product product, int quantity, int thresholdQuantity) {
+        this.stockId = stockId;
+        this.product = product;
+        this.quantity = quantity;
+        this.thresholdQuantity = thresholdQuantity;
+    }
+
+    public boolean checkStockAvailability(int quantityRequested) {
+        return quantity >= quantityRequested;
+    }
+
+    public void updateStock(int quantitySold) {
+        this.quantity -= quantitySold;
+    }
+
+    public void restock(int quantityAdded) {
+        this.quantity += quantityAdded;
+    }
+
+    @Override
+    public String toString() {
+        return "Stock ID: " + stockId + ", Product: " + product.productName + ", Quantity: " + quantity + ", Threshold: " + thresholdQuantity;
+    }
+}
+
+class Sales {
+    int saleId;
+    Product product;
+    int quantitySold;
+    double salePrice;
+
+    Sales(int saleId, Product product, int quantitySold, double salePrice) {
+        this.saleId = saleId;
+        this.product = product;
+        this.quantitySold = quantitySold;
+        this.salePrice = salePrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Sale ID: " + saleId + ", Product: " + product.productName + ", Quantity Sold: " + quantitySold + ", Total Sale Price: " + salePrice;
+    }
+}
+
+class TransactionHistory {
+    int transactionId;
+    Stock stock;
+    String transactionType;  // "Sale", "Restock", "Update"
+    int quantityChanged;
+
+    TransactionHistory(int transactionId, Stock stock, String transactionType, int quantityChanged) {
+        this.transactionId = transactionId;
+        this.stock = stock;
+        this.transactionType = transactionType;
+        this.quantityChanged = quantityChanged;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction ID: " + transactionId + ", Stock ID: " + stock.stockId + ", Type: " + transactionType + ", Quantity Changed: " + quantityChanged;
+    }
+}
+
+public class StockManagementSystem {
+
+    static ArrayList<Product> products = new ArrayList<>();
+    static ArrayList<Stock> stocks = new ArrayList<>();
+    static ArrayList<Sales> salesList = new ArrayList<>();
+    static ArrayList<TransactionHistory> transactionHistoryList = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+    static int productCounter = 1;
+    static int stockCounter = 1;
+    static int saleCounter = 1;
+    static int transactionCounter = 1;
+
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("\nStock Management System:");
+            System.out.println("1. Add Product");
+            System.out.println("2. Update Stock");
+            System.out.println("3. Restock Product");
+            System.out.println("4. Make Sale");
+            System.out.println("5. View Product List");
+            System.out.println("6. View Stock List");
+            System.out.println("7. View Transaction History");
+            System.out.println("8. Exit");
+
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    addProduct();
+                    break;
+                case 2:
+                    updateStock();
+                    break;
+                case 3:
+                    restockProduct();
+                    break;
+                case 4:
+                    makeSale();
+                    break;
+                case 5:
+                    viewProductList();
+                    break;
+                case 6:
+                    viewStockList();
+                    break;
+                case 7:
+                    viewTransactionHistory();
+                    break;
+                case 8:
+                    System.out.println("Exiting system...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+
+    public static void addProduct() {
+        scanner.nextLine(); // consume newline
+        System.out.print("Enter product name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter product price: ");
+        double price = scanner.nextDouble();
+        System.out.print("Enter supplier ID: ");
+        int supplierId = scanner.nextInt();
+        Supplier supplier = new Supplier(supplierId, "Supplier" + supplierId); // Simple supplier name
+
+        Product product = new Product(productCounter++, name, price, supplier);
+        products.add(product);
+        System.out.println("Product added: " + product);
+    }
+
+    public static void updateStock() {
+        System.out.print("Enter product ID to update stock: ");
+        int productId = scanner.nextInt();
+        Product product = findProductById(productId);
+        if (product == null) {
+            System.out.println("Product not found.");
+            return;
+        }
+
+        System.out.print("Enter quantity: ");
+        int quantity = scanner.nextInt();
+        System.out.print("Enter threshold quantity: ");
+        int thresholdQuantity = scanner.nextInt();
+
+        Stock stock = findStockByProductId(productId);
+        if (stock == null) {
+            Stock newStock = new Stock(stockCounter++, product, quantity, thresholdQuantity);
+            stocks.add(newStock);
+            transactionHistoryList.add(new TransactionHistory(transactionCounter++, newStock, "Update", quantity));
+            System.out.println("New stock created: " + newStock);
+        } else {
+            stock.quantity = quantity;
+            stock.thresholdQuantity = thresholdQuantity;
+            transactionHistoryList.add(new TransactionHistory(transactionCounter++, stock, "Update", quantity));
+            System.out.println("Stock updated: " + stock);
+        }
+    }
+
+    public static void restockProduct() {
+        System.out.print("Enter product ID to restock: ");
+        int productId = scanner.nextInt();
+        Stock stock = findStockByProductId(productId);
+        if (stock == null) {
+            System.out.println("Stock not found for this product.");
+            return;
+        }
+
+        System.out.print("Enter quantity to restock: ");
+        int restockQty = scanner.nextInt();
+        stock.restock(restockQty);
+        transactionHistoryList.add(new TransactionHistory(transactionCounter++, stock, "Restock", restockQty));
+        System.out.println("Restocked successfully: " + stock);
+    }
+
+    public static void makeSale() {
+        System.out.print("Enter product ID to make sale: ");
+        int productId = scanner.nextInt();
+        Product product = findProductById(productId);
+        if (product == null) {
+            System.out.println("Product not found.");
+            return;
+        }
+
+        Stock stock = findStockByProductId(productId);
+        if (stock == null) {
+            System.out.println("No stock available for this product.");
+            return;
+        }
+
+        System.out.print("Enter quantity sold: ");
+        int quantitySold = scanner.nextInt();
+        if (!stock.checkStockAvailability(quantitySold)) {
+            System.out.println("Not enough stock.");
+            return;
+        }
+
+        stock.updateStock(quantitySold);
+        double salePrice = product.price * quantitySold;
+        Sales sale = new Sales(saleCounter++, product, quantitySold, salePrice);
+        salesList.add(sale);
+
+        transactionHistoryList.add(new TransactionHistory(transactionCounter++, stock, "Sale", quantitySold));
+        System.out.println("Sale completed: " + sale);
+    }
+
+    public static void viewProductList() {
+        System.out.println("\nProducts List:");
+        if (products.isEmpty()) {
+            System.out.println("No products available.");
+        }
+        for (Product product : products) {
+            System.out.println(product);
+        }
+    }
+
+    public static void viewStockList() {
+        System.out.println("\nStock List:");
+        if (stocks.isEmpty()) {
+            System.out.println("No stock entries.");
+        }
+
+        for (Stock stock : stocks) {
+            System.out.println(stock);
+            if (stock.quantity <= stock.thresholdQuantity) {
+                System.out.println("⚠️ ALERT: Low stock for product '" + stock.product.productName + "'. Please restock!");
+            }
+        }
+    }
+
+    public static void viewTransactionHistory() {
+        System.out.println("\nTransaction History:");
+        if (transactionHistoryList.isEmpty()) {
+            System.out.println("No transactions found.");
+        }
+        for (TransactionHistory transaction : transactionHistoryList) {
+            System.out.println(transaction);
+        }
+    }
+
+    public static Product findProductById(int productId) {
+        for (Product product : products) {
+            if (product.productId == productId) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public static Stock findStockByProductId(int productId) {
+        for (Stock stock : stocks) {
+            if (stock.product.productId == productId) {
+                return stock;
+            }
+        }
+        return null;
+    }
+}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </section>
+            </div>
+        </div>
+        <div class="video-sidebar">
+            <h2>Preparation Playlist</h2>
+            <p>Zoho Round 2 Question Bank </p>
+            <div class="video-container">
+                <a href="https://www.youtube.com/playlist?list=PL2FY0egU3TJQ86lOTmoGzhRX9SUo48Z1B" target="_blank" class="video-link">
+                    <img src="https://i.ytimg.com/vi/rezfGLOdeEg/hqdefault.jpg" alt="Playlist thumbnail" class="video-thumbnail">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+
+            <div class="channel-info">
+                <h3>Subscribe for More</h3>
+                <p>Check out our channel for Zoho Round 3</p>
+                <img src="https://yt3.googleusercontent.com/8jKEl8Ya5AUdzHp_y4v7GDDLAuu47VJbeFHaBldbXsDJXjsjK0IJPwgGNmfUCzvZGYziSPv_nQ=s800-c-k-c0x00ffffff-no-rj" alt="Code It Channel Logo" onclick="window.location.href='https://www.youtube.com/@codeit-tamil';" style="cursor: pointer;">
+
+                <div><a href="https://www.youtube.com/@codeit-tamil" target="_blank" class="channel-link">@codeit-tamil</a></div>
+                <p>Don't forget to like and subscribe!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            &copy; 2025 Zoho Interview Preparation | Practice these problems to ace
+            your interview!
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
