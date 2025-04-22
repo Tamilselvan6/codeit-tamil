@@ -145,22 +145,3 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
     }
 });
-
-// Detect DevTools open using size difference
-let devtoolsOpen = false;
-setInterval(() => {
-    const threshold = 160;
-    if (
-        window.outerWidth - window.innerWidth > threshold ||
-        window.outerHeight - window.innerHeight > threshold
-    ) {
-        if (!devtoolsOpen) {
-            devtoolsOpen = true;
-            alert("Developer tools detected. Reloading...");
-            location.reload();
-        }
-    } else {
-        devtoolsOpen = false;
-    }
-}, 1000);
-
