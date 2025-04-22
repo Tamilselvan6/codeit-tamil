@@ -773,11 +773,10 @@ footer {
 #custom-popup {
     position: fixed;
     top: 20px;
-    right: 20px;
+    left: 80px;
     background-color: #e53935; /* Red background */
     color: #fff;
     padding: 14px 24px;
-    border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     font-family: sans-serif;
     font-size: 15px;
