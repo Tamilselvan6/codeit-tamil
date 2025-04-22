@@ -125,3 +125,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Disable right-click and show toast
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    const popup = document.getElementById('custom-popup');
+    popup.style.display = 'block';
+    setTimeout(() => popup.style.display = 'none', 5000);
+});
+
+// Disable common DevTools shortcuts
+document.addEventListener('keydown', function (e) {
+    if (
+        e.key === 'F12' || e.keyCode === 123 || // F12
+        (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
+        (e.ctrlKey && e.key.toLowerCase() === 'u') || // Ctrl+U
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') || // Ctrl+Shift+J
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') // Ctrl+Shift+C
+    ) {
+        e.preventDefault();
+    }
+});
+
+// Detect DevTools open using size difference
+let devtoolsOpen = false;
+setInterval(() => {
+    const threshold = 160;
+    if (
+        window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold
+    ) {
+        if (!devtoolsOpen) {
+            devtoolsOpen = true;
+            alert("Developer tools detected. Reloading...");
+            location.reload();
+        }
+    } else {
+        devtoolsOpen = false;
+    }
+}, 1000);
+
