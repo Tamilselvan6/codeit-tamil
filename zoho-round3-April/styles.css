@@ -768,3 +768,38 @@ footer {
     width: 16px;
     height: 16px;
 }
+
+
+#custom-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #e53935; /* Red background */
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: sans-serif;
+    font-size: 15px;
+    display: none;
+    z-index: 9999;
+    animation: slideRight 0.4s ease-out;
+}
+
+#custom-popup a {
+    color: #ffeb3b; /* Bright yellow link */
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
