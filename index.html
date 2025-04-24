@@ -547,9 +547,12 @@
         }
 
         // Add this to hide loading when page finishes loading
-        window.addEventListener('load', function () {
+        document.addEventListener('DOMContentLoaded', function () {
             const overlay = document.getElementById('loadingOverlay');
-            overlay.classList.remove('active');
+            // Add a small delay to ensure the animation plays briefly
+            setTimeout(() => {
+                overlay.classList.remove('active');
+            }, 500);
         });
         // Simulate live video functionality
         const liveBadges = document.querySelectorAll(".live-badge");
