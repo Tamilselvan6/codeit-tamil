@@ -521,58 +521,75 @@
         </div>
     </div>
     <script>
-    // Unified handler for all cards
-    document.querySelectorAll(".dashboard-card").forEach((card) => {
-        card.addEventListener("click", (e) => {
-            if (e.target.closest(".video-preview")) return;
+// Unified handler for all cards
+document.querySelectorAll(".dashboard-card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+        if (e.target.closest(".video-preview")) return;
 
-            const targetUrl = card.getAttribute("data-target");
-            if (targetUrl) {
-                showLoading();
-                // Add error handling in case navigation fails
-                setTimeout(() => {
-                    try {
-                        window.location.href = targetUrl;
-                    } catch (error) {
-                        hideLoading();
-                        console.error("Navigation failed:", error);
-                    }
-                }, 2000);
-                hideLoading();
-            }
-        });
+        const targetUrl = card.getAttribute("data-target");
+        if (targetUrl) {
+            showLoading();
+            
+            // Store the loading state in sessionStorage
+            sessionStorage.setItem('isLoading', 'true');
+            
+            // Add error handling in case navigation fails
+            setTimeout(() => {
+                try {
+                    window.location.href = targetUrl;
+                } catch (error) {
+                    hideLoading();
+                    sessionStorage.removeItem('isLoading');
+                    console.error("Navigation failed:", error);
+                }
+            }, 2000);
+        }
     });
+});
 
-    function showLoading() {
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.classList.add('active');
-        
-        // Reset animation
-        const progressBar = overlay.querySelector('.progress-bar');
-        progressBar.style.animation = 'none';
-        void progressBar.offsetWidth; // Trigger reflow
-        progressBar.style.animation = 'progress 1.5s ease-in-out infinite';
+function showLoading() {
+    const overlay = document.getElementById('loadingOverlay');
+    overlay.classList.add('active');
+    
+    // Reset animation
+    const progressBar = overlay.querySelector('.progress-bar');
+    progressBar.style.animation = 'none';
+    void progressBar.offsetWidth; // Trigger reflow
+    progressBar.style.animation = 'progress 1.5s ease-in-out infinite';
+}
+
+function hideLoading() {
+    const overlay = document.getElementById('loadingOverlay');
+    overlay.classList.remove('active');
+    sessionStorage.removeItem('isLoading');
+}
+
+// Hide loading if page is being unloaded (navigation occurs)
+window.addEventListener('beforeunload', () => {
+    hideLoading();
+});
+
+// Check for loading state when page loads (in case you want to show it on the next page)
+document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('isLoading') === 'true') {
+        hideLoading(); // Hide it immediately on the new page
     }
+});
 
-    function hideLoading() {
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.classList.remove('active');
-    }
+// Simulate live video functionality
+const liveBadges = document.querySelectorAll(".live-badge");
+liveBadges.forEach((badge) => {
+    badge.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const card = this.closest(".dashboard-card");
+        const videoPreview = card.querySelector(".video-preview");
 
-    // Simulate live video functionality
-    const liveBadges = document.querySelectorAll(".live-badge");
-    liveBadges.forEach((badge) => {
-        badge.addEventListener("click", function (e) {
-            e.stopPropagation();
-            const card = this.closest(".dashboard-card");
-            const videoPreview = card.querySelector(".video-preview");
-
-            if (videoPreview) {
-                // Scroll to the video preview
-                videoPreview.scrollIntoView({ behavior: "smooth" });
-            }
-        });
+        if (videoPreview) {
+            // Scroll to the video preview
+            videoPreview.scrollIntoView({ behavior: "smooth" });
+        }
     });
+});
 </script>
 </body>
 
