@@ -1,0 +1,144 @@
+.main-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    gap: 2rem;
+}
+
+.content-container {
+    flex: 0 0 70%;
+}
+
+.intro {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.intro h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.intro h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+.intro p {
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.intro ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.intro ul li {
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--secondary);
+    border-radius: 0 4px 4px 0;
+    transition: all 0.2s ease;
+}
+
+.intro ul li strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .intro {
+        padding: 1.5rem;
+    }
+
+    .intro h2 {
+        font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .intro ul li {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+.interview-process {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.day {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.day h2 {
+    color: var(--secondary);
+    border-bottom: 2px solid var(--light);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.problem {
+    background-color: var(--light);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.problem h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.problem-number {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.example {
+    background-color: #f8f9fa;
+    padding: 0.8rem;
+    border-left: 4px solid var(--secondary);
+    margin: 0.8rem 0;
+    font-family: monospace;
+}
