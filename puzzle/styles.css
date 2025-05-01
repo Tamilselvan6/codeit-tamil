@@ -1,0 +1,521 @@
+:root {
+    /* Color Variables */
+    --primary-color: #4361ee;
+    --primary-dark: #3a56d4;
+    --accent-color: #4895ef;
+    --danger-color: #3a3a3a;
+    --success-color: #4cc9f0;
+    --warning-color: #f8961e;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    
+    /* Design Variables */
+    --border-radius: 12px;
+    --box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.container{
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.container h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 2.5rem;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.container h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Card Components */
+.card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.puzzle-description {
+    border-left: 4px solid var(--primary-color);
+}
+
+.puzzle-description strong {
+    color: var(--primary-color);
+}
+
+.instructions {
+    background-color: #fff9e6;
+    border-left: 4px solid var(--warning-color);
+}
+
+/* Keyboard Shortcuts Section */
+.keyboard-hint {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(67, 97, 238, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.keyboard-hint h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.shortcut-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.key {
+    background-color: var(--primary-color);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Puzzle Area Styles */
+.solve-area {
+    padding: 1.3rem;
+    border-radius: var(--border-radius);
+    margin: 10px 0;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 5rem; /* Adjust based on your layout */
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.solve-area.dark-mode .theme-toggle {
+    color: #4cc9f0;
+}
+
+
+/* Fullscreen Controls */
+.fullscreen-control {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+/* Fullscreen Mode Styles */
+.solve-area.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: white;
+    padding: 2rem;
+    overflow: auto;
+    margin: 0;
+}
+
+.solve-area.fullscreen .jug-container {
+    min-height: 60vh;
+    margin: 2rem 0;
+}
+
+.solve-area.fullscreen .fullscreen-control {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.solve-area.fullscreen #fullscreen-btn .icon {
+    transform: rotate(45deg);
+}
+
+/* Hide sidebar in fullscreen */
+.solve-area.fullscreen ~ .video-sidebar {
+    display: none;
+}
+
+/* Make jugs larger in fullscreen */
+.solve-area.fullscreen #jug-a {
+    width: 120px;
+    height: 350px;
+}
+
+.solve-area.fullscreen #jug-b {
+    width: 100px;
+    height: 218.75px;
+}
+
+.solve-area.fullscreen #jug-c {
+    width: 90px;
+    height: 131.25px;
+}
+
+.jug-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2.5rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+    min-height: 300px;
+}
+
+.jug {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.jug:hover {
+    transform: translateY(-10px);
+}
+
+.jug:hover .jug-visual {
+    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
+}
+
+.jug.selected {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(67, 97, 238, 0.5));
+}
+
+.jug.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.jug.disabled .jug-visual {
+    box-shadow: none;
+}
+
+.jug-label {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+
+.jug-visual {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0.3) 100%);
+    border: 2px solid rgba(188, 214, 254, 0.8);
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+    border-bottom: 4px solid rgba(133, 182, 255, 0.824);
+    border-radius: 0 0 15px 15px;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: var(--transition);
+}
+
+/* Jug Sizes */
+#jug-a {
+    width: 90px;
+    height: 260px;
+}
+
+#jug-b {
+    width: 80px;
+    height: 162.5px;
+}
+
+#jug-c {
+    width: 70px;
+    height: 97.5px;
+}
+
+/* Remove tap highlight color on mobile */
+.jug, .btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Water Animation */
+.water {
+    background: linear-gradient(to bottom, #4aa8ff, #1a73e8);
+    border-radius: 0 0 12px 12px;
+    transition: height 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.water::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: radial-gradient(circle at 50% 0,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0) 70%);
+    animation: waterRipple 3s infinite ease-in-out;
+}
+
+@keyframes waterRipple {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+.water-amount {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.jug-capacity {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    font-weight: 500;
+}
+
+/* Stats Display */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat {
+    background-color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+/* Buttons */
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+/* Success Message */
+.success-message {
+    color: var(--primary-dark);
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    background-color: rgba(76, 201, 240, 0.1);
+    padding: 1.2rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--success-color);
+}
+
+
+/* Jug Selection Animation */
+@keyframes jugPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(67, 97, 238, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(67, 97, 238, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(67, 97, 238, 0);
+    }
+}
+
+.jug-pulse {
+    animation: jugPulse 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        background: none;
+        padding: 0rem;
+    }
+
+    .jug-container {
+        gap: 1.5rem;
+    }
+
+    #jug-a {
+        width: 70px;
+        height: 210px;
+    }
+
+    #jug-b {
+        width: 60px;
+        height: 131.25px;
+    }
+
+    #jug-c {
+        width: 50px;
+        height: 78.75px;
+    }
+
+    .stats-container {
+        margin-top: 45px;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .stat {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .solve-area {
+        background: white;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .jug-container {
+        gap: 1rem;
+    }
+
+    #jug-a {
+        width: 60px;
+        height: 180px;
+    }
+
+    #jug-b {
+        width: 50px;
+        height: 112.5px;
+    }
+
+    #jug-c {
+        width: 40px;
+        height: 67.5px;
+    }
+
+    .shortcut-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fullscreen-control {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .solve-area.fullscreen .fullscreen-control {
+        top: 1rem;
+        right: 1rem;
+    }
+}
+

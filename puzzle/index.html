@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Water Jug Puzzle Solver</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel=icon
+        href="https://raw.githubusercontent.com/Tamilselvan6/codeit-tamil/refs/heads/main/Codeit_Logo/Code_it_White_Logo_Without_BG.png">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/ZOHO_logo_2023.svg" alt="Zoho Logo"
+                    class="zoho-logo">
+            </div>
+            <div class="title-container">
+                <h1>Puzzle Interview Preparation</h1>
+                <p>Zoho | Interactive Puzzle solving </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Subscription Modal (shown by default) -->
+    <div id="subscriptionModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Subscribe to Unlock Content</h2>
+            <p>To access the interview questions, please subscribe to our YouTube channel:</p>
+            <a href="https://www.youtube.com/@codeit-tamil?sub_confirmation=1" target="_blank" class="subscribe-btn"
+                id="subscribeBtn">
+                <svg class="youtube-icon" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z" />
+                </svg>
+                Subscribe to codeit-tamil
+            </a>
+            <p class="already-subscribed" id="alreadySubscribed">I've already subscribed</p>
+        </div>
+    </div>
+
+    <div id="returnMessage" class="return-message">
+        <h3><span class="checkmark">✓</span> Thanks for subscribing!</h3>
+        <p>All content is now unlocked. Happy learning!</p>
+    </div>
+
+    <div class="main-container">
+        <div class="content-container">
+
+            <!-- Locked Content Placeholder -->
+            <div id="lockedContent" class="locked-content">
+                <div class="locked-icon">🔒</div>
+                <h3>Content Locked</h3>
+                <p>Subscribe to our YouTube channel to unlock all interview questions</p>
+                <button id="unlockBtn" class="subscribe-btn" style="margin-top: 1rem;">
+                    Unlock Content
+                </button>
+            </div>
+
+            <!-- Actual Content (hidden by default) -->
+            <div id="interviewContent" class="interview-process hidden">
+                <div class="container">
+                    <h1>Water Jug Puzzle Solver</h1>
+
+                    <div class="puzzle-description card">
+                        <p><strong>Puzzle:</strong> You have three jugs with capacities of 8 liters, 5 liters, and 3
+                            liters. The 8-liter jug is full of water, while the other two are empty. Your task is to
+                            divide the water into two equal parts (4 liters in one jug and 4 liters in another) using
+                            only these three jugs.</p>
+                    </div>
+
+                    <div class="instructions card">
+                        <p><strong>How to play:</strong> Click on a jug to select it (it will highlight), then click on
+                            another jug to pour water from the first selected jug to the second one.</p>
+                        <div class="keyboard-hint">
+                            <h4>Keyboard Shortcuts:</h4>
+                            <div class="shortcut-grid">
+                                <div class="shortcut-item">
+                                    <span class="key">1</span>
+                                    <span class="action">Select Jug A</span>
+                                </div>
+                                <div class="shortcut-item">
+                                    <span class="key">2</span>
+                                    <span class="action">Select Jug B</span>
+                                </div>
+                                <div class="shortcut-item">
+                                    <span class="key">3</span>
+                                    <span class="action">Select Jug C</span>
+                                </div>
+                                <div class="shortcut-item">
+                                    <span class="key">R</span>
+                                    <span class="action">Reset Puzzle</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solve-area">
+                        <div class="stats-container">
+                            <div class="stat">
+                                <span class="stat-value" id="move-counter">0</span>
+                                <span class="stat-label">Moves</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value" id="efficiency">0%</span>
+                                <span class="stat-label">Efficiency</span>
+                            </div>
+                        </div>
+                        
+                        <div class="fullscreen-control">
+                            <button id="fullscreen-btn" class="btn">
+                                <span class="icon">⛶</span> Full Screen
+                            </button>
+                        </div>
+
+                        <div class="jug-container">
+                            <div class="jug" id="jug-a-container" data-jug="a">
+                                <div class="jug-label">Jug A</div>
+                                <div class="jug-visual" id="jug-a">
+                                    <div class="water" id="water-a" style="height: 100%;"></div>
+                                    <div class="water-amount" id="amount-a">8L</div>
+                                </div>
+                                <div class="jug-capacity">Capacity: 8L</div>
+                            </div>
+
+                            <div class="jug" id="jug-b-container" data-jug="b">
+                                <div class="jug-label">Jug B</div>
+                                <div class="jug-visual" id="jug-b">
+                                    <div class="water" id="water-b" style="height: 0%;"></div>
+                                    <div class="water-amount" id="amount-b">0L</div>
+                                </div>
+                                <div class="jug-capacity">Capacity: 5L</div>
+                            </div>
+
+                            <div class="jug" id="jug-c-container" data-jug="c">
+                                <div class="jug-label">Jug C</div>
+                                <div class="jug-visual" id="jug-c">
+                                    <div class="water" id="water-c" style="height: 0%;"></div>
+                                    <div class="water-amount" id="amount-c">0L</div>
+                                </div>
+                                <div class="jug-capacity">Capacity: 3L</div>
+                            </div>
+                        </div>
+
+                        <div class="controls">
+                            <button id="reset-btn" class="btn">
+                                <span class="icon">⟳</span> Reset Puzzle
+                            </button>
+                        </div>
+
+                        <div id="success-message" class="success-message" style="display: none;">
+                            🎉 Congratulations! You've successfully divided the water into two 4-liter portions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-sidebar">
+            <h2>Preparation Playlist</h2>
+            <div class="video-container">
+                <a href="https://www.youtube.com/@codeit-tamil" target="_blank"
+                    class="video-link">
+                    <img src="https://raw.githubusercontent.com/Tamilselvan6/codeit-tamil/refs/heads/main/Thumbnail/Puzzle_Thumnail.jpg"
+                        alt="Playlist thumbnail" class="video-thumbnail">
+                    <div class="play-button"></div>
+                </a>
+            </div>
+
+            <div class="channel-info">
+                <h3>Subscribe for More</h3>
+                <p>Check out our channel for Zoho Round 3</p>
+                <img src="https://yt3.googleusercontent.com/8jKEl8Ya5AUdzHp_y4v7GDDLAuu47VJbeFHaBldbXsDJXjsjK0IJPwgGNmfUCzvZGYziSPv_nQ=s800-c-k-c0x00ffffff-no-rj"
+                    alt="Code It Channel Logo" onclick="window.location.href='https://www.youtube.com/@codeit-tamil';"
+                    style="cursor: pointer;">
+
+                <div><a href="https://www.youtube.com/@codeit-tamil" target="_blank"
+                        class="channel-link">@codeit-tamil</a></div>
+                <p>Don't forget to like and subscribe!</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            &copy; 2025 Zoho Interview Preparation | Practice these problems to ace
+            your interview!
+        </p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="../assets/script.js"></script>
+</body>
+
+</html>
