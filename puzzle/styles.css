@@ -478,6 +478,18 @@
         background: white;
         padding: 1rem;
     }
+     /* Make jugs larger in fullscreen */
+    .solve-area.fullscreen #jug-a {
+        width: 85px;
+    }
+
+    .solve-area.fullscreen #jug-b {
+        width: 80px;
+    }
+
+    .solve-area.fullscreen #jug-c {
+        width: 75px;
+    }
 }
 
 @media (max-width: 480px) {
