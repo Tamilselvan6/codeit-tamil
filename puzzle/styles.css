@@ -489,6 +489,9 @@
         background: white;
         padding: 1rem;
     }
+    solve-area.fullscreen {
+    overflow: hidden;
+    }
      /* Make jugs larger in fullscreen */
     .solve-area.fullscreen #jug-a {
         width: 85px;
