@@ -489,9 +489,20 @@
         background: white;
         padding: 1rem;
     }
-    solve-area.fullscreen {
-    overflow: hidden;
+    
+    .solve-area.fullscreen {
+        overflow: auto;
     }
+
+    /* Success Message */
+    .success-message {
+        font-weight: 400;
+        margin: 1rem 0;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        border-left: 2px solid var(--success-color);
+    }
+
      /* Make jugs larger in fullscreen */
     .solve-area.fullscreen #jug-a {
         width: 85px;
