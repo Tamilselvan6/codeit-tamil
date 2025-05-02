@@ -64,33 +64,51 @@ function showSuccess() {
 }
 
 function triggerConfetti() {
-    // Simple confetti effect
     const colors = ['#4361ee', '#3a56d4', '#4895ef', '#4cc9f0', '#f72585'];
+    const solveArea = document.querySelector('.solve-area');
+    const isFullscreen = solveArea.classList.contains('fullscreen');
+    
+    // Create a container for confetti
+    const confettiContainer = document.createElement('div');
+    confettiContainer.className = 'confetti-container';
+    
+    // Append to the appropriate parent
+    const container = isFullscreen ? solveArea : document.body;
+    container.appendChild(confettiContainer);
+
+    // Calculate max height based on container
+    const maxHeight = isFullscreen ? solveArea.clientHeight : window.innerHeight;
 
     for (let i = 0; i < 100; i++) {
         const confetti = document.createElement('div');
-        confetti.style.position = 'fixed';
+        confetti.style.position = 'absolute';
         confetti.style.width = '10px';
         confetti.style.height = '10px';
         confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         confetti.style.borderRadius = '50%';
-        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.left = `${Math.random() * 100}%`;
         confetti.style.top = '-10px';
         confetti.style.zIndex = '1000';
         confetti.style.transform = 'rotate(0deg)';
         confetti.style.opacity = '0.8';
 
-        document.body.appendChild(confetti);
+        confettiContainer.appendChild(confetti);
 
         const animation = confetti.animate([
             { top: '-10px', transform: 'rotate(0deg)', opacity: 0.8 },
-            { top: `${Math.random() * 100 + 50}vh`, transform: 'rotate(360deg)', opacity: 0 }
+            { top: `${maxHeight + 10}px`, transform: 'rotate(360deg)', opacity: 0 }
         ], {
             duration: 2000 + Math.random() * 3000,
             easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
         });
 
-        animation.onfinish = () => confetti.remove();
+        animation.onfinish = () => {
+            confetti.remove();
+            // Remove container when all confetti is gone
+            if (confettiContainer.children.length === 0) {
+                confettiContainer.remove();
+            }
+        };
     }
 }
 
@@ -267,20 +285,20 @@ document.getElementById('fullscreen-btn').addEventListener('click', function() {
     const solveArea = document.querySelector('.solve-area');
     
     if (!document.fullscreenElement) {
+        solveArea.classList.add('fullscreen');
         if (solveArea.requestFullscreen) {
             solveArea.requestFullscreen();
-        } else if (solveArea.webkitRequestFullscreen) { /* Safari */
+        } else if (solveArea.webkitRequestFullscreen) {
             solveArea.webkitRequestFullscreen();
-        } else if (solveArea.msRequestFullscreen) { /* IE11 */
+        } else if (solveArea.msRequestFullscreen) {
             solveArea.msRequestFullscreen();
         }
-        solveArea.classList.add('fullscreen');
     } else {
         if (document.exitFullscreen) {
             document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
+        } else if (document.webkitExitFullscreen) {
             document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE11 */
+        } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
         }
         solveArea.classList.remove('fullscreen');
