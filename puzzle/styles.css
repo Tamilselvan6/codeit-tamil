@@ -151,13 +151,24 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: 1000;
     background: white;
     padding: 2rem;
-    overflow: auto;
     margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Confetti container */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .solve-area.fullscreen .jug-container {
